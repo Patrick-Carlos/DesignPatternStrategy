@@ -1,0 +1,23 @@
+package app;
+
+import strategy.Disciplina;
+import strategy.Aritmetica;
+import strategy.Geometrica;
+import strategy.MediaStrategy;
+
+public class Main {
+    public static void main(String[] args) {
+        // Altere a estratégia abaixo para Geometrica ou Aritimetica para testar outra lógica utilizando // para desativar a lógica
+        MediaStrategy estrategia = new Aritmetica();
+        //MediaStrategy estrategia = new Geometrica();
+
+        Disciplina d = new Disciplina(estrategia);
+        d.setNome("Padrões de Desenvolvimento");
+        d.setP1(10);
+        d.setP2(5);
+        d.calcularMedia();
+
+        System.out.printf("Disciplina: %s\nP1: %.2f  P2: %.2f  Média: %.2f  Situação: %s%n",
+                d.getNome(), d.getP1(), d.getP2(), d.getMedia(), d.getSituacao());
+    }
+}
